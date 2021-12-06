@@ -1,0 +1,7 @@
+
+
+To upgrade the version just change the Dockerfile and bump the 2nd line. 
+
+Rebuild the docker image, then update the docker-compose file with the new image name. 
+
+docker-compose up to make sure it works, then docker-compose up -d to let it run. 

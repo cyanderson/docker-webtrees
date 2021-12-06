@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    image: mariadb:10
+    container_name: webtrees-db
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=W@ter123
+      - MYSQL_DATABASE=webtress
+      - MYSQL_USER=webtrees
+      - MYSQL_PASSWORD=R0uter123
+    ports:
+      - "3306:3306"
+    restart: always
+  site:
+    image: webtrees-2-0-17
+    container_name: webtrees-site
+    volumes:
+      - ./webtrees/data:/var/www/html/data
+    environment:
+      - SERVER_NAME=192.168.1.13:8080
+      - WEBTREES_DB_HOST=db
+      - WEBTREES_DB_PORT=3306
+      - WEBTREES_DB_USER=webtress
+      - WEBTREES_DB_PASS=R0uter123
+      - WEBTREES_DB_NAME=webtrees
+      - WEBTREES_TBL_PFX=wt_
+    ports:
+      - "8080:80"
+    restart: always
