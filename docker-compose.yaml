@@ -6,10 +6,10 @@ services:
     volumes:
       - ./db:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=W@ter123
+      - MYSQL_ROOT_PASSWORD=change-me
       - MYSQL_DATABASE=webtress
       - MYSQL_USER=webtrees
-      - MYSQL_PASSWORD=R0uter123
+      - MYSQL_PASSWORD=change-me
     ports:
       - "3306:3306"
     restart: always
@@ -23,7 +23,7 @@ services:
       - WEBTREES_DB_HOST=db
       - WEBTREES_DB_PORT=3306
       - WEBTREES_DB_USER=webtress
-      - WEBTREES_DB_PASS=R0uter123
+      - WEBTREES_DB_PASS=change-me
       - WEBTREES_DB_NAME=webtrees
       - WEBTREES_TBL_PFX=wt_
     ports:
